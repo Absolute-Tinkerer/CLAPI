@@ -37,7 +37,10 @@ class MainWindowHandlers(QMainWindow):
         self._iidx = 0
 
         # Load the first post
-        self._loadPost(self._posts[self._pidx])
+        if len(self._posts) > 0:
+            self._loadPost(self._posts[self._pidx])
+        else:
+            raise Exception('No posts are available for this query')
 
     def nextImage(self):
         post = self._posts[self._pidx]
